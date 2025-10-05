@@ -1,0 +1,39 @@
+{
+  "HomePage": {
+    "greeting": "Hello, I'm",
+    "name": "Ing. Abd Alrahman Saleh",
+    "title": "Full Stack Developer & Software Engineer",
+    "description": "Welcome to my Next.js 15 template - a modern, production-ready starter built with TypeScript, Tailwind CSS, and best practices.",
+    "templateInfo": "This template was crafted with care to provide developers with a solid foundation for their next project.",
+    "viewLinkedIn": "View LinkedIn Profile",
+    "viewGitHub": "View on GitHub",
+    "getStarted": "Get Started",
+    "builtWith": "Built with",
+    "features": {
+      "title": "Template Features",
+      "nextjs": "Next.js 15 with App Router & Turbopack",
+      "react": "React 19 with latest features",
+      "typescript": "TypeScript with strict configuration",
+      "tailwind": "Tailwind CSS 4 with CSS-first approach",
+      "shadcn": "Shadcn/ui component system",
+      "darkMode": "Dark mode support with next-themes",
+      "i18n": "Multi-language support with next-intl",
+      "env": "Type-safe environment variables",
+      "linting": "ESLint, Prettier, and Husky setup",
+      "docker": "Docker ready with multi-stage builds"
+    }
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog",
+    "toggleTheme": "Toggle theme",
+    "language": "Language"
+  },
+  "Footer": {
+    "madeBy": "Made with ❤️ by",
+    "allRightsReserved": "All rights reserved.",
+    "connect": "Connect with me"
+  }
+}
