@@ -2,315 +2,187 @@
 
 A modern, production-ready Next.js 15 template with TypeScript, Tailwind CSS 4, and comprehensive tooling setup. Built by **Ing. Abd Alrahman Saleh**.
 
-> ⚠️ **Work in Progress** - This template is actively being developed and improved. Some features may be incomplete or subject to change.
-
 [![Next.js](https://img.shields.io/badge/Next.js-15.0-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.0-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![Status](https://img.shields.io/badge/Status-In_Progress-yellow?style=for-the-badge)](https://github.com/abd-alrahman-saleh/nextjs-15-template)
 
 ## ✨ Features
 
-- ⚡ **Next.js 15** with App Router and Turbopack (76.7% faster development)
-- ⚛️ **React 19** with latest features and optimizations
-- 🔷 **TypeScript** with strict configuration and path mapping
-- 🎨 **Tailwind CSS 4** with CSS-first configuration (5x faster builds)
-- 🎯 **Shadcn/ui** component system with customizable themes
+- ⚡ **Next.js 15** with App Router and Turbopack
+- ⚛️ **React 19** with latest features
+- 🔷 **TypeScript** with strict configuration
+- 🎨 **Tailwind CSS 4** with CSS-first configuration
+- 🎯 **Shadcn/ui** component system
 - 🌙 **Dark mode** support with next-themes
-- 🌍 **Internationalization** with next-intl (English, German)
+- 🌍 **Internationalization** with react-i18next (instant client-side switching)
 - 🔒 **Type-safe environment variables** with T3-env and Zod
-- 🔧 **ESLint 9** with flat configuration and TypeScript support
-- 💅 **Prettier** with Tailwind CSS plugin for automatic class sorting
-- 🐶 **Husky & lint-staged** for pre-commit hooks and code quality
-- 🐳 **Docker** ready with multi-stage builds and standalone output
-- 📱 **SEO optimized** with sitemap, robots.txt, and metadata
-- 🚀 **Performance optimized** with bundle analysis and monitoring
+- 🔧 **ESLint 9** with flat configuration
+- 💅 **Prettier** with Tailwind CSS plugin
+- 🐶 **Husky & lint-staged** for pre-commit hooks
+- 🐳 **Docker** ready with multi-stage builds
+- 📱 **SEO optimized** with sitemap and robots.txt
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
 - **Node.js** 18.17+ or 20+
-- **Package manager**: npm
-- **Git** for version control
+- **npm** (or yarn/pnpm)
 
 ### Installation
 
-1. **Clone the repository**
+```bash
+# 1. Clone the repository
+git clone https://github.com/abdosalehpkcs/nextjs-template
+cd nextjs-template
 
-   ```bash
-   git clone https://github.com/abdosalehpkcs/nextjs-template
-   cd nextjs-15-template
-   ```
+# 2. Install dependencies
+npm install
 
-2. **Install dependencies**
+# 3. Copy environment variables
+cp .env.example .env.local
 
-   ```bash
-   npm install
-   ```
+# 4. Start development server
+npm run dev
+```
 
-3. **Set up environment variables**
-
-   ```bash
-   cp .env.example .env.local
-   ```
-
-   Edit `.env.local` with your configuration.
-
-4. **Start development server**
-
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser**
-   Visit [http://localhost:3000](http://localhost:3000) to see your application.
+Open [http://localhost:3000](http://localhost:3000) to see your app.
 
 ## 📁 Project Structure
 
 ```
 nextjs-template/
-├── 📁 public/                     # Static assets
-│   ├── next.svg
-│   └── ...
-├── 📁 src/                        # Source code
-│   ├── 📁 app/                    # Next.js App Router
-│   │   ├── 📁 [locale]/           # Internationalized routes
-│   │   │   ├── layout.tsx          # Locale-specific layout
-│   │   │   ├── page.tsx            # Homepage
-│   │   │   └── ...
-│   │   ├── globals.css           # Global styles with Tailwind
-│   │   ├── layout.tsx            # Root layout
-│   │   ├── sitemap.ts           # Dynamic sitemap generation
-│   │   └── robots.ts            # Robots.txt configuration
-│   ├── 📁 components/            # Reusable components
-│   │   ├── 📁 ui/               # Shadcn/ui components
-│   │   │   ├── button.tsx
-│   │   │   ├── card.tsx
-│   │   │   ├── badge.tsx
-│   │   │   └── ...
-│   │   ├── icons.tsx     # Constant Icons keys
-│   │   ├── lang-switcher.tsx     # Language selector
-│   │   ├── theme-provider.tsx     # Context provider
-│   │   ├── theme-toggle.tsx     # Dark mode toggle
-│   ├── 📁 i18n/                 # Internationalization config
-│   │   ├── navigation.ts        # Type-safe navigation utilities (Link, useRouter, etc.)
-│   │   ├── request.ts           # Server-side i18n request handler
-│   │   └── routing.ts           # Locale routing configuration and setup
-│   ├── 📁 lib/                  # Utility libraries
-│   │   └── utils.ts             # Common utilities (cn, etc.)
-│   └── env.ts                   # Environment variable validation
-├── 📁 messages/                  # Translation files
-│   ├── en.json                  # English translations
-│   ├── de.json                  # German translations
-├── 📄 .env.example              # Environment variables template
-├── 📄 .gitignore               # Git ignore rules
-├── 📄 .lintstagedrc.js         # Lint-staged configuration
-├── 📄 commitlint.config.js     # Commit message linting
-├── 📄 components.json          # Shadcn/ui configuration
-├── 📄 Dockerfile              # Docker configuration
-├── 📄 eslint.config.mjs       # ESLint configuration
-├── 📄 middleware.ts           # Next.js middleware for i18n
-├── 📄 next.config.ts          # Next.js configuration
-├── 📄 package.json           # Dependencies and scripts
-├── 📄 postcss.config.mjs     # PostCSS configuration
-├── 📄 prettier.config.js     # Prettier configuration
-├── 📄 README.md             # This file
-└── 📄 tsconfig.json         # TypeScript configuration
+├── messages/                 # Translation files (en.json, de.json)
+├── public/                   # Static assets
+├── src/
+│   ├── app/                  # Next.js App Router
+│   │   ├── layout.tsx        # Root layout
+│   │   ├── page.tsx          # Homepage (client component)
+│   │   ├── robots.ts         # Robots.txt generation
+│   │   └── sitemap.ts        # Sitemap generation
+│   ├── components/           # React components
+│   │   ├── ui/               # Shadcn/ui components
+│   │   ├── lang-switcher.tsx # Language toggle button
+│   │   ├── theme-provider.tsx
+│   │   └── theme-switcher.tsx
+│   ├── i18n/                 # Internationalization
+│   │   ├── config.ts         # Locale configuration
+│   │   ├── provider.tsx      # I18n React provider
+│   │   └── settings.ts       # i18next settings
+│   ├── lib/                  # Utilities
+│   │   ├── fonts.ts
+│   │   ├── site-config.ts    # Site metadata
+│   │   └── utils.ts
+│   └── env.ts                # Environment validation
+├── .env.example              # Environment template
+├── Dockerfile                # Docker configuration
+├── next.config.ts            # Next.js config
+└── package.json
 ```
 
 ## 🛠️ Available Scripts
 
-### Development
-
-````bash
-# Start development server with Turbopack
-npm run dev
-
-### Building
 ```bash
-# Build for production
-npm run build
+# Development
+npm run dev           # Start dev server with Turbopack
 
-# Start production server
-npm run start
-````
+# Building
+npm run build         # Build for production
+npm run start         # Start production server
 
-### Code Quality
-
-```bash
-# Run ESLint
-npm run lint
-
-# Fix ESLint issues automatically
-npm run lint:fix
-
-# Format code with Prettier
-npm run format
-
-# Check code formatting
-npm run format:check
-
-# Run TypeScript type checking
-npm run type-check
-```
-
-### Testing
-
-```bash
-# Run tests (if configured)
-npm run test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Generate test coverage report
-npm run test:coverage
-```
-
-### Analysis & Optimization
-
-```bash
-
-```
-
-### Docker
-
-```bash
-
-```
-
-### Git Hooks
-
-```bash
-
+# Code Quality
+npm run lint          # Run ESLint
+npm run lint:fix      # Fix ESLint issues
+npm run format        # Format with Prettier
+npm run format:check  # Check formatting
+npm run type-check    # TypeScript type checking
 ```
 
 ## 🌍 Internationalization
 
-This template supports multiple languages out of the box:
+This template uses **react-i18next** for instant client-side language switching (no page reloads).
 
-- 🇺🇸 **English** (default) - `/`
-- 🇩🇪 **German** - `/de`
+**Supported languages:**
 
-### Adding New Languages
+- 🇺🇸 English (default)
+- 🇩🇪 German
 
-1. **Add locale to routing configuration**
+### Adding a New Language
 
-   ```typescript
-   // src/i18n/routing.ts
-   export const routing = defineRouting({
-     locales: ['en', 'de', 'your-locale'],
-     defaultLocale: 'en',
-   });
-   ```
-
-2. **Create translation file**
+1. **Create translation file:**
 
    ```bash
-   # Create new translation file
-   cp messages/en.json messages/your-locale.json
+   cp messages/en.json messages/fr.json
    ```
 
-3. **Update language switcher**
+2. **Add locale to config:**
+
    ```typescript
-   // src/components/language-switcher.tsx
-   const languages = {
-     'your-locale': 'Your Language Name',
-     // ...
-   };
+   // src/i18n/config.ts
+   export const locales = ['en', 'de', 'fr'] as const;
    ```
 
-## 🎨 Customization
+3. **Translate the JSON file** with your new language strings.
 
-### Theming
+### Using Translations
 
-The template uses Tailwind CSS 4 with CSS-first configuration:
+```tsx
+'use client';
+import { useTranslation } from 'react-i18next';
 
-```css
-/* src/app/globals.css */
-@theme {
-  --color-primary: #your-color;
-  --color-secondary: #your-secondary;
-  /* Add your custom theme variables */
+export function MyComponent() {
+  const { t } = useTranslation();
+  return <h1>{t('HomePage.greeting')}</h1>;
 }
 ```
 
-### Components
+## 🎨 Customization
 
-All UI components are from Shadcn/ui and can be customized:
+### Site Configuration
 
-```bash
+Edit `src/lib/site-config.ts`:
 
+```typescript
+export const siteConfig = {
+  title: 'Your App Name',
+  description: 'Your app description',
+  keywords: ['keyword1', 'keyword2'],
+  url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
+};
 ```
 
 ### Environment Variables
 
-Configure your environment in `.env.local`:
+Edit `.env.local`:
 
 ```bash
-# Application
+# Required
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_APP_NAME=Your App Name
 
-# Authentication (example)
-NEXTAUTH_SECRET=your-secret-key
-
-# Analytics (example)
+# Optional
+GOOGLE_SITE_VERIFICATION_ID=your-verification-id
 GOOGLE_SITE_ANALYTICS_ID=G-XXXXXXXXXX
 ```
 
-## 📈 Performance
+### Adding UI Components
 
-This template achieves excellent performance benchmarks:
-
-- ⚡ **Dev server startup**: < 2 seconds with Turbopack
-- 🔄 **Hot reload**: < 200ms with Turbopack
-- 📦 **Build time**: < 30 seconds for basic template
-- 🎯 **Lighthouse score**: 90+ across all metrics
-- 📱 **First Contentful Paint**: < 1.5s
-- 🏃 **Largest Contentful Paint**: < 2.5s
-
-## 🔧 Configuration
-
-### TypeScript
-
-Strict TypeScript configuration with helpful path mappings:
-
-```json
-{
-  "compilerOptions": {
-    "strict": true,
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/lib/*": ["./src/lib/*"]
-    }
-  }
-}
+```bash
+npx shadcn@latest add [component-name]
 ```
 
-### ESLint
+## 🐳 Docker
 
-Modern ESLint 9 flat configuration with Next.js, TypeScript, and Prettier integration.
+```bash
+# Build image
+docker build -t nextjs-app .
 
-### Prettier
-
-Automatic code formatting with Tailwind CSS class sorting.
-
-### Husky & Lint-staged
-
-Pre-commit hooks ensure code quality:
-
-- ESLint checking and auto-fixing
-- Prettier formatting
-- TypeScript type checking
-- Conventional commit message linting
+# Run container
+docker run -p 3000:3000 nextjs-app
+```
 
 ## 🤝 Contributing
-
-Contributions are welcome! Please read the contributing guidelines:
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
@@ -318,44 +190,18 @@ Contributions are welcome! Please read the contributing guidelines:
 4. Push to branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
-### Commit Convention
-
-This project uses [Conventional Commits](https://conventionalcommits.org/):
-
-- `feat:` new features
-- `fix:` bug fixes
-- `docs:` documentation changes
-- `style:` code style changes
-- `refactor:` code refactoring
-- `test:` test changes
-- `chore:` maintenance tasks
+**Commit Convention:** This project uses [Conventional Commits](https://conventionalcommits.org/)
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) for details.
 
 ## 👨‍💻 Author
 
-**Ing. Abd Alrahman Saleh**
+**Ing. Abd Alrahman Saleh** - Full Stack Developer & Software Engineer
 
-- Full Stack Developer & Software Engineer
-- 🔗 LinkedIn: [Connect with me](https://www.linkedin.com/in/abdo-saleh/)
-- 🐱 GitHub: [Follow me](https://github.com/abdosalehpkcs)
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/) - The React Framework for Production
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
-- [Shadcn/ui](https://ui.shadcn.com/) - Beautifully designed components
-- [next-intl](https://next-intl-docs.vercel.app/) - Internationalization for Next.js
-- [T3 Stack](https://create.t3.gg/) - Environment variable validation inspiration
-
-## 📊 Project Stats
-
-![GitHub stars](https://img.shields.io/github/stars/abdosalehpkcs/nextjs-template?style=social)
-![GitHub forks](https://img.shields.io/github/forks/abdosalehpkcs/nextjs-template?style=social)
-![GitHub issues](https://img.shields.io/github/issues/abdosalehpkcs/nextjs-template)
-![GitHub license](https://img.shields.io/github/license/abdosalehpkcs/nextjs-template)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/abdo-saleh/)
+- 🐱 [GitHub](https://github.com/abdosalehpkcs)
 
 ---
 

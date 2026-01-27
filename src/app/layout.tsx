@@ -1,20 +1,15 @@
 import '@/styles/globals.css';
 
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { hasLocale, NextIntlClientProvider } from 'next-intl';
 
 import { LangSwitcher } from '@/components/lang-switcher';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ThemeSwitcher } from '@/components/theme-switcher';
-import { routing } from '@/i18n/routing';
+import { env } from '@/env';
+import { I18nProvider } from '@/i18n/provider';
 import { fonts } from '@/lib/fonts';
 import { siteConfig } from '@/lib/site-config';
 import { cn } from '@/lib/utils';
-
-export function generateStaticParams() {
-  return routing.locales.map(locale => ({ locale }));
-}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -30,7 +25,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon/favicon-16x16.png',
   },
   verification: {
-    google: siteConfig.googleSiteVerificationId,
+    google: env.GOOGLE_SITE_VERIFICATION_ID || '',
   },
   openGraph: {
     url: siteConfig.url,
@@ -48,29 +43,17 @@ export const metadata: Metadata = {
   },
 };
 
-const RootLayout = async ({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) => {
-  const { locale } = await params;
-
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={cn('min-h-screen font-sans', fonts)}>
-        <NextIntlClientProvider>
+        <I18nProvider>
           <ThemeProvider attribute="class">
             {children}
             <LangSwitcher className="absolute right-5 bottom-16 z-10" />
             <ThemeSwitcher className="absolute right-5 bottom-5 z-10" />
           </ThemeProvider>
-        </NextIntlClientProvider>
+        </I18nProvider>
       </body>
     </html>
   );

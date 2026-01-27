@@ -17,7 +17,7 @@
       "tailwind": "Tailwind CSS 4 with CSS-first approach",
       "shadcn": "Shadcn/ui component system",
       "darkMode": "Dark mode support with next-themes",
-      "i18n": "Multi-language support with next-intl",
+      "i18n": "Multi-language support with react-i18next",
       "env": "Type-safe environment variables",
       "linting": "ESLint, Prettier, and Husky setup",
       "docker": "Docker ready with multi-stage builds"

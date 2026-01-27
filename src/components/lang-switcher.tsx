@@ -1,26 +1,37 @@
-import Link from 'next/link';
-import { useLocale } from 'next-intl';
-import { ComponentProps } from 'react';
+'use client';
 
-import { buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { ComponentProps } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { Button } from '@/components/ui/button';
+import { type Locale } from '@/i18n/config';
 
 type LangSwitcherProps = {
-  className?: ComponentProps<typeof Link>['className'];
+  className?: ComponentProps<typeof Button>['className'];
 };
 
 export const LangSwitcher = ({ className }: LangSwitcherProps) => {
-  const locale = useLocale();
+  const { i18n } = useTranslation();
+  const currentLocale = i18n.language as Locale;
+
+  const switchLanguage = () => {
+    const newLocale: Locale = currentLocale === 'en' ? 'de' : 'en';
+
+    // Change language client-side (instant, no reload)
+    i18n.changeLanguage(newLocale);
+
+    // Store preference in cookie
+    document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000`;
+  };
 
   return (
-    <Link
-      className={cn(
-        buttonVariants({ variant: 'outline', size: 'icon' }),
-        className,
-      )}
-      href={locale === 'en' ? '/de' : '/en'}
+    <Button
+      variant="outline"
+      size="icon"
+      className={className}
+      onClick={switchLanguage}
     >
-      {locale === 'en' ? 'DE' : 'EN'}
-    </Link>
+      {currentLocale === 'en' ? 'DE' : 'EN'}
+    </Button>
   );
 };

@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Code2,
   ExternalLink,
@@ -6,12 +8,10 @@ import {
   Globe2,
   Linkedin,
   Rocket,
-  Server,
   Settings,
   Shield,
 } from 'lucide-react';
-import { getTranslations } from 'next-intl/server';
-import { setRequestLocale } from 'next-intl/server';
+import { useTranslation } from 'react-i18next';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -25,21 +25,8 @@ import {
 import { env } from '@/env';
 import { siteConfig } from '@/lib/site-config';
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
-
-export default async function Home(props: Props) {
-  const params = await props.params;
-
-  const { locale } = params;
-
-  // Enable static rendering
-  setRequestLocale(locale);
-
-  const t = await getTranslations('HomePage');
-  const tFooter = await getTranslations('Footer');
-  const tFeatures = await getTranslations('HomePage.features');
+export default function Home() {
+  const { t, i18n } = useTranslation();
 
   const features = [
     { key: 'nextjs', icon: '⚡' },
@@ -83,18 +70,18 @@ export default async function Home(props: Props) {
               <div className="mx-auto max-w-4xl text-center">
                 <div className="mb-8">
                   <p className="text-muted-foreground mb-2 text-lg">
-                    {t('greeting')}
+                    {t('HomePage.greeting')}
                   </p>
                   <h1 className="from-primary to-primary/60 mb-4 bg-gradient-to-r bg-clip-text text-4xl font-bold text-transparent md:text-6xl lg:text-7xl">
-                    {t('name')}
+                    {t('HomePage.name')}
                   </h1>
                   <h2 className="text-muted-foreground mb-6 text-xl font-medium md:text-2xl lg:text-3xl">
-                    {t('title')}
+                    {t('HomePage.title')}
                   </h2>
                 </div>
 
                 <p className="text-muted-foreground mx-auto mb-8 max-w-3xl text-lg leading-relaxed md:text-xl">
-                  {t('description')}
+                  {t('HomePage.description')}
                 </p>
 
                 {/* CTA Buttons */}
@@ -107,7 +94,7 @@ export default async function Home(props: Props) {
                       className="flex items-center gap-2"
                     >
                       <Linkedin className="h-5 w-5" />
-                      {t('viewLinkedIn')}
+                      {t('HomePage.viewLinkedIn')}
                       <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </a>
                   </Button>
@@ -120,7 +107,7 @@ export default async function Home(props: Props) {
                       className="flex items-center gap-2"
                     >
                       <Github className="h-5 w-5" />
-                      {t('viewGitHub')}
+                      {t('HomePage.viewGitHub')}
                     </a>
                   </Button>
                 </div>
@@ -128,7 +115,7 @@ export default async function Home(props: Props) {
                 {/* Tech Stack */}
                 <div className="mb-16">
                   <p className="text-muted-foreground mb-4 text-sm">
-                    {t('builtWith')}
+                    {t('HomePage.builtWith')}
                   </p>
                   <div className="flex flex-wrap justify-center gap-2">
                     {techStack.map(tech => (
@@ -146,10 +133,10 @@ export default async function Home(props: Props) {
               <div className="mb-12 text-center">
                 <h3 className="mb-4 flex items-center justify-center gap-2 text-2xl font-bold md:text-3xl">
                   <Rocket className="text-primary h-8 w-8" />
-                  {tFeatures('title')}
+                  {t('HomePage.features.title')}
                 </h3>
                 <p className="text-muted-foreground mx-auto max-w-2xl">
-                  {t('templateInfo')}
+                  {t('HomePage.templateInfo')}
                 </p>
               </div>
 
@@ -163,7 +150,7 @@ export default async function Home(props: Props) {
                       <CardTitle className="flex items-center gap-3 text-lg">
                         <span className="text-2xl">{feature.icon}</span>
                         <span className="group-hover:text-primary transition-colors">
-                          {tFeatures(feature.key)}
+                          {t(`HomePage.features.${feature.key}`)}
                         </span>
                       </CardTitle>
                     </CardHeader>
@@ -181,7 +168,7 @@ export default async function Home(props: Props) {
                     Next.js 15 Template
                   </CardTitle>
                   <CardDescription className="text-base">
-                    {t('templateInfo')}
+                    {t('HomePage.templateInfo')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="text-center">
@@ -193,7 +180,7 @@ export default async function Home(props: Props) {
                       className="flex items-center gap-2"
                     >
                       <Github className="h-5 w-5" />
-                      {t('getStarted')}
+                      {t('HomePage.getStarted')}
                       <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </a>
                   </Button>
@@ -275,60 +262,6 @@ export default async function Home(props: Props) {
                 </CardContent>
               </Card>
 
-              {/* Environment Variables - Server */}
-              <Card className="border-orange-500/20">
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-                    <Server className="h-4 w-4 text-orange-500" />
-                    Server Env
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div>
-                    <p className="text-muted-foreground mb-1 text-xs">
-                      Node Environment
-                    </p>
-                    <Badge
-                      variant={
-                        env.NODE_ENV === 'production' ? 'default' : 'secondary'
-                      }
-                      className="text-xs"
-                    >
-                      {env.NODE_ENV}
-                    </Badge>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground mb-1 text-xs">
-                      Google Site Verification
-                    </p>
-                    <p className="font-mono text-xs">
-                      {env.GOOGLE_SITE_VERIFICATION_ID || (
-                        <span className="text-muted-foreground italic">
-                          Not configured
-                        </span>
-                      )}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground mb-1 text-xs">
-                      Google Analytics
-                    </p>
-                    <p className="font-mono text-xs">
-                      {env.GOOGLE_SITE_ANALYTICS_ID || (
-                        <span className="text-muted-foreground italic">
-                          Not configured
-                        </span>
-                      )}
-                    </p>
-                  </div>
-                  <div className="border-t pt-2">
-                    <code className="text-muted-foreground text-xs">
-                      env.ts (server)
-                    </code>
-                  </div>
-                </CardContent>
-              </Card>
-
               {/* Quick Stats */}
               <Card className="border-green-500/20">
                 <CardHeader className="pb-3">
@@ -359,7 +292,7 @@ export default async function Home(props: Props) {
                       Locale
                     </span>
                     <Badge variant="secondary" className="text-xs uppercase">
-                      {locale}
+                      {i18n.language}
                     </Badge>
                   </div>
                   <div className="border-t pt-2">
@@ -379,8 +312,10 @@ export default async function Home(props: Props) {
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             <p className="text-muted-foreground mb-4">
-              {tFooter('madeBy')}{' '}
-              <span className="text-foreground font-semibold">{t('name')}</span>
+              {t('Footer.madeBy')}{' '}
+              <span className="text-foreground font-semibold">
+                {t('HomePage.name')}
+              </span>
             </p>
             <div className="mb-4 flex justify-center gap-4">
               <a
@@ -401,7 +336,7 @@ export default async function Home(props: Props) {
               </a>
             </div>
             <p className="text-muted-foreground text-sm">
-              © 2025 {t('name')}. {tFooter('allRightsReserved')}
+              © 2025 {t('HomePage.name')}. {t('Footer.allRightsReserved')}
             </p>
           </div>
         </div>
