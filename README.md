@@ -28,23 +28,23 @@ A modern, production-ready Next.js 15 template with TypeScript, Tailwind CSS 4, 
 ### Prerequisites
 
 - **Node.js** 18.17+ or 20+
-- **npm** (or yarn/pnpm)
+- **Yarn** (recommended) or npm/pnpm
 
 ### Installation
 
 ```bash
-# 1. Clone the repository
+# 1. Clone the repository (or use GitHub's "Use this template" button)
 git clone https://github.com/abdosalehpkcs/nextjs-template
 cd nextjs-template
 
 # 2. Install dependencies
-npm install
+yarn install
 
 # 3. Copy environment variables
 cp .env.example .env.local
 
 # 4. Start development server
-npm run dev
+yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your app.
@@ -85,18 +85,18 @@ nextjs-template/
 
 ```bash
 # Development
-npm run dev           # Start dev server with Turbopack
+yarn dev              # Start dev server with Turbopack
 
 # Building
-npm run build         # Build for production
-npm run start         # Start production server
+yarn build            # Build for production
+yarn start            # Start production server
 
 # Code Quality
-npm run lint          # Run ESLint
-npm run lint:fix      # Fix ESLint issues
-npm run format        # Format with Prettier
-npm run format:check  # Check formatting
-npm run type-check    # TypeScript type checking
+yarn lint             # Run ESLint
+yarn lint:fix         # Fix ESLint issues
+yarn format           # Format with Prettier
+yarn format:check     # Check formatting
+yarn type-check       # TypeScript type checking
 ```
 
 ## 🌍 Internationalization
@@ -181,6 +181,45 @@ docker build -t nextjs-app .
 # Run container
 docker run -p 3000:3000 nextjs-app
 ```
+
+## 🔄 Syncing Updates from Template
+
+> **Note:** A repository created from a GitHub template has **no automatic link** to the original template. GitHub does not track template ancestry, so there's no "Update from template" button.
+
+### How to Pull Template Updates
+
+You can manually sync updates by adding the template as an upstream remote:
+
+```bash
+# 1. Add template as remote (one-time setup)
+git remote add template https://github.com/abdosalehpkcs/nextjs-template.git
+
+# 2. Fetch latest changes from template
+git fetch template
+
+# 3. Merge or rebase template changes into your branch
+git merge template/main
+# or
+git rebase template/main
+```
+
+### Cherry-pick Specific Commits
+
+If you only want specific updates:
+
+```bash
+# View template commits
+git log template/main --oneline
+
+# Cherry-pick specific commit
+git cherry-pick <commit-hash>
+```
+
+### Limitations
+
+- ❌ No automatic syncing like a fork
+- ❌ No one-click "update from template" in GitHub
+- ⚠️ Manual merging may cause conflicts with your customizations
 
 ## 🤝 Contributing
 
