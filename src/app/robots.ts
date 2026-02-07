@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
   if (env.NODE_ENV !== 'production') {
     return {
       rules: { userAgent: '*', disallow: '/' },
-      sitemap: `${env.NEXT_PUBLIC_APP_URL}/sitemap.xml`,
+      sitemap: `${env.APP_URL}/sitemap.xml`,
     };
   }
 
@@ -16,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/api/private/'],
     },
-    sitemap: `${env.NEXT_PUBLIC_APP_URL}/sitemap.xml`,
+    sitemap: `${env.APP_URL}/sitemap.xml`,
   };
 }

@@ -35,5 +35,189 @@
     "madeBy": "Mit ❤️ erstellt von",
     "allRightsReserved": "Alle Rechte vorbehalten.",
     "connect": "Verbinde dich mit mir"
+  },
+  "Consent": {
+    "banner": {
+      "title": "Wir verwenden Cookies",
+      "description": "Wir verwenden Cookies, um Ihre Browser-Erfahrung zu verbessern, den Website-Traffic zu analysieren und unsere Dienste zu optimieren.",
+      "learnMore": "Mehr erfahren"
+    },
+    "actions": {
+      "accept": "Alle akzeptieren",
+      "reject": "Alle ablehnen",
+      "manage": "Einstellungen verwalten",
+      "acceptAriaLabel": "Alle Cookies akzeptieren",
+      "rejectAriaLabel": "Nicht-essentielle Cookies ablehnen",
+      "manageAriaLabel": "Cookie-Einstellungen öffnen"
+    },
+    "preferences": {
+      "title": "Cookie-Einstellungen",
+      "description": "Verwalten Sie Ihre Cookie-Einstellungen. Sie können verschiedene Cookie-Kategorien unten aktivieren oder deaktivieren.",
+      "savePreferences": "Einstellungen speichern",
+      "alwaysOn": "Immer aktiv",
+      "enable": "Aktivieren",
+      "disable": "Deaktivieren"
+    },
+    "categories": {
+      "necessary": {
+        "title": "Notwendige Cookies",
+        "description": "Diese Cookies sind für das ordnungsgemäße Funktionieren der Website unerlässlich. Sie können nicht deaktiviert werden."
+      },
+      "analytics": {
+        "title": "Analyse-Cookies",
+        "description": "Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie anonyme Informationen sammeln."
+      }
+    }
+  },
+  "Legal": {
+    "links": {
+      "terms": "Nutzungsbedingungen",
+      "privacy": "Datenschutz",
+      "cookies": "Cookie-Richtlinie",
+      "cookiePreferences": "Cookie-Einstellungen",
+      "ariaLabel": "Rechtliche Links",
+      "cookiePreferencesAriaLabel": "Cookie-Einstellungen verwalten"
+    },
+    "terms": {
+      "title": "Nutzungsbedingungen",
+      "lastUpdated": "Zuletzt aktualisiert: 3. Februar 2026",
+      "sections": {
+        "acceptance": {
+          "title": "1. Annahme der Bedingungen",
+          "content": "Durch den Zugriff auf diese Website akzeptieren Sie diese Nutzungsbedingungen. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie bitte unsere Dienste nicht."
+        },
+        "useOfService": {
+          "title": "2. Nutzung des Dienstes",
+          "content": "Sie stimmen zu, unseren Dienst nur für rechtmäßige Zwecke und in Übereinstimmung mit diesen Bedingungen zu nutzen. Sie stimmen zu, Folgendes nicht zu tun:",
+          "items": {
+            "lawful": "Den Dienst für rechtswidrige Zwecke nutzen oder andere zu rechtswidrigen Handlungen auffordern",
+            "noHarm": "Vorschriften, Regeln, Gesetze oder lokale Verordnungen verletzen",
+            "noUnauthorized": "Versuchen, unbefugten Zugriff auf unsere Systeme oder Netzwerke zu erlangen"
+          }
+        },
+        "intellectualProperty": {
+          "title": "3. Geistiges Eigentum",
+          "content": "Alle Inhalte, Funktionen und Funktionalitäten auf dieser Website sind unser Eigentum und durch internationale Urheberrechts-, Marken- und andere Gesetze zum geistigen Eigentum geschützt."
+        },
+        "disclaimer": {
+          "title": "4. Haftungsausschluss",
+          "content": "Diese Website wird \"wie besehen\" ohne jegliche ausdrückliche oder stillschweigende Garantien bereitgestellt. Wir garantieren nicht, dass der Dienst ununterbrochen, sicher oder fehlerfrei sein wird."
+        },
+        "limitation": {
+          "title": "5. Haftungsbeschränkung",
+          "content": "In keinem Fall haften wir für indirekte, zufällige, besondere, Folge- oder Strafschäden, die aus Ihrer Nutzung oder Unfähigkeit zur Nutzung des Dienstes resultieren."
+        },
+        "changes": {
+          "title": "6. Änderungen der Bedingungen",
+          "content": "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Wir werden Sie über Änderungen informieren, indem wir die neuen Bedingungen auf dieser Seite veröffentlichen."
+        },
+        "contact": {
+          "title": "7. Kontakt",
+          "content": "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte über die auf unserer Website angegebenen Kontaktinformationen."
+        }
+      }
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "lastUpdated": "Zuletzt aktualisiert: 3. Februar 2026",
+      "sections": {
+        "introduction": {
+          "title": "1. Einführung",
+          "content": "Wir respektieren Ihre Privatsphäre und verpflichten uns, Ihre persönlichen Daten zu schützen. Diese Datenschutzerklärung erklärt, wie wir Ihre Informationen sammeln, verwenden und schützen, wenn Sie unsere Website besuchen."
+        },
+        "dataCollection": {
+          "title": "2. Welche Daten wir sammeln",
+          "content": "Wir können die folgenden Arten von Informationen sammeln:",
+          "items": {
+            "usage": "Nutzungsdaten (besuchte Seiten, verbrachte Zeit usw.)",
+            "device": "Geräteinformationen (Browsertyp, Betriebssystem)",
+            "cookies": "Cookies und ähnliche Tracking-Technologien"
+          }
+        },
+        "dataUse": {
+          "title": "3. Wie wir Ihre Daten verwenden",
+          "content": "Wir verwenden die gesammelten Daten für verschiedene Zwecke:",
+          "items": {
+            "provide": "Um unseren Dienst bereitzustellen und zu pflegen",
+            "improve": "Um Ihre Erfahrung zu verbessern und zu personalisieren",
+            "communicate": "Um mit Ihnen über Updates und Änderungen zu kommunizieren",
+            "analytics": "Um Nutzungsmuster zu analysieren und die Leistung zu optimieren"
+          }
+        },
+        "dataSharing": {
+          "title": "4. Datenweitergabe",
+          "content": "Wir verkaufen Ihre persönlichen Daten nicht. Wir können anonymisierte, aggregierte Daten mit Analyse-Anbietern teilen, um zu verstehen, wie unsere Website genutzt wird."
+        },
+        "dataSecurity": {
+          "title": "5. Datensicherheit",
+          "content": "Wir implementieren angemessene Sicherheitsmaßnahmen zum Schutz Ihrer persönlichen Daten. Allerdings ist keine Übertragungsmethode über das Internet zu 100% sicher."
+        },
+        "yourRights": {
+          "title": "6. Ihre Rechte",
+          "content": "Je nach Ihrem Standort haben Sie möglicherweise die folgenden Rechte:",
+          "items": {
+            "access": "Recht auf Zugang zu Ihren persönlichen Daten",
+            "correction": "Recht auf Berichtigung ungenauer Daten",
+            "deletion": "Recht auf Löschung Ihrer Daten",
+            "optOut": "Recht auf Widerspruch gegen bestimmte Datenverarbeitungen"
+          }
+        },
+        "changes": {
+          "title": "7. Änderungen dieser Richtlinie",
+          "content": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Wir werden Sie über Änderungen informieren, indem wir die neue Richtlinie auf dieser Seite veröffentlichen."
+        },
+        "contact": {
+          "title": "8. Kontakt",
+          "content": "Wenn Sie Fragen zu dieser Datenschutzerklärung haben, kontaktieren Sie uns bitte über die auf unserer Website angegebenen Kontaktinformationen."
+        }
+      }
+    },
+    "cookies": {
+      "title": "Cookie-Richtlinie",
+      "lastUpdated": "Zuletzt aktualisiert: 3. Februar 2026",
+      "sections": {
+        "whatAreCookies": {
+          "title": "1. Was sind Cookies",
+          "content": "Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden, wenn Sie eine Website besuchen. Sie helfen Websites, Ihre Einstellungen zu speichern und Ihr Browsing-Erlebnis zu verbessern."
+        },
+        "howWeUse": {
+          "title": "2. Wie wir Cookies verwenden",
+          "content": "Wir verwenden Cookies, um zu verstehen, wie Sie unsere Website nutzen, Ihre Einstellungen zu speichern und unsere Dienste zu verbessern. Einige Cookies sind für das ordnungsgemäße Funktionieren der Website unerlässlich."
+        },
+        "types": {
+          "title": "3. Arten von Cookies, die wir verwenden",
+          "necessary": {
+            "title": "Notwendige Cookies",
+            "content": "Diese Cookies sind für das ordnungsgemäße Funktionieren der Website unerlässlich. Sie ermöglichen grundlegende Funktionen wie die Seitennavigation und den Zugriff auf sichere Bereiche. Die Website kann ohne diese Cookies nicht richtig funktionieren."
+          },
+          "analytics": {
+            "title": "Analyse-Cookies",
+            "content": "Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie Informationen anonym sammeln und melden. Dies hilft uns, unsere Website und Dienste zu verbessern."
+          }
+        },
+        "thirdParty": {
+          "title": "4. Cookies von Drittanbietern",
+          "content": "Wir verwenden möglicherweise die folgenden Drittanbieterdienste, die Cookies setzen:",
+          "googleAnalytics": "Wird verwendet, um den Website-Traffic und das Nutzerverhalten zu analysieren. Mehr erfahren Sie in der Datenschutzerklärung von Google."
+        },
+        "manage": {
+          "title": "5. Verwalten Ihrer Cookie-Einstellungen",
+          "content": "Sie können Ihre Cookie-Einstellungen jederzeit verwalten, indem Sie auf die Schaltfläche unten klicken:",
+          "button": "Cookie-Einstellungen verwalten"
+        },
+        "browserSettings": {
+          "title": "6. Browser-Cookie-Einstellungen",
+          "content": "Sie können Cookies auch über Ihre Browsereinstellungen steuern. Die meisten Browser ermöglichen es Ihnen, Cookies abzulehnen oder zu akzeptieren, vorhandene Cookies zu löschen oder Einstellungen für bestimmte Websites festzulegen."
+        },
+        "changes": {
+          "title": "7. Änderungen dieser Richtlinie",
+          "content": "Wir können diese Cookie-Richtlinie von Zeit zu Zeit aktualisieren. Wir werden Sie über Änderungen informieren, indem wir die neue Richtlinie auf dieser Seite veröffentlichen."
+        },
+        "contact": {
+          "title": "8. Kontakt",
+          "content": "Wenn Sie Fragen zu unserer Verwendung von Cookies haben, kontaktieren Sie uns bitte über die auf unserer Website angegebenen Kontaktinformationen."
+        }
+      }
+    }
   }
 }

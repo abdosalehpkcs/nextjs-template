@@ -5,7 +5,6 @@ import {
   ExternalLink,
   Github,
   Globe,
-  Globe2,
   Linkedin,
   Rocket,
   Settings,
@@ -22,11 +21,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { env } from '@/env';
+import { useTrackEvent } from '@/lib/analytics';
 import { siteConfig } from '@/lib/site-config';
 
 export default function Home() {
   const { t, i18n } = useTranslation();
+  const track = useTrackEvent();
 
   const features = [
     { key: 'nextjs', icon: '⚡' },
@@ -92,6 +92,14 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
+                      onClick={() => {
+                        // Example: Track external link click
+                        track('link_click', {
+                          link_url: 'https://www.linkedin.com/in/abdo-saleh/',
+                          link_text: t('HomePage.viewLinkedIn'),
+                          is_external: true,
+                        });
+                      }}
                     >
                       <Linkedin className="h-5 w-5" />
                       {t('HomePage.viewLinkedIn')}
@@ -105,6 +113,14 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
+                      onClick={() => {
+                        // Example: Track external link click
+                        track('link_click', {
+                          link_url: 'https://github.com/abdosalehpkcs',
+                          link_text: t('HomePage.viewGitHub'),
+                          is_external: true,
+                        });
+                      }}
                     >
                       <Github className="h-5 w-5" />
                       {t('HomePage.viewGitHub')}
@@ -178,6 +194,14 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
+                      onClick={() => {
+                        // Example: Track CTA button click
+                        track('button_click', {
+                          button_id: 'get-started-cta',
+                          button_text: t('HomePage.getStarted'),
+                          section: 'template-promo',
+                        });
+                      }}
                     >
                       <Github className="h-5 w-5" />
                       {t('HomePage.getStarted')}
@@ -224,39 +248,6 @@ export default function Home() {
                   <div className="border-t pt-2">
                     <code className="text-muted-foreground text-xs">
                       lib/site-config.ts
-                    </code>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Environment Variables - Client */}
-              <Card className="border-blue-500/20">
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-                    <Globe2 className="h-4 w-4 text-blue-500" />
-                    Client Env
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div>
-                    <p className="text-muted-foreground mb-1 text-xs">
-                      App URL
-                    </p>
-                    <p className="font-mono text-xs break-all">
-                      {env.NEXT_PUBLIC_APP_URL}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground mb-1 text-xs">
-                      App Name
-                    </p>
-                    <p className="text-sm font-medium">
-                      {env.NEXT_PUBLIC_APP_NAME}
-                    </p>
-                  </div>
-                  <div className="border-t pt-2">
-                    <code className="text-muted-foreground text-xs">
-                      env.ts (client)
                     </code>
                   </div>
                 </CardContent>
