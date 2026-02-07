@@ -391,17 +391,20 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Phone className="mt-1 h-5 w-5 text-primary" />
+                    <Phone className="mt-1 h-5 w-5 shrink-0 text-primary" />
                     <div>
                       <p className="text-sm font-medium text-foreground">
                         {t('ContactPage.info.phone')}
                       </p>
-                      <a
-                        href={`tel:${siteConfig.company.phone}`}
-                        className="text-sm text-muted-foreground transition-colors hover:text-primary"
-                      >
-                        {siteConfig.company.phone}
-                      </a>
+                      {siteConfig.company.phones.map((phone) => (
+                        <a
+                          key={phone}
+                          href={`tel:${phone.replace(/\s/g, '')}`}
+                          className="block text-sm text-muted-foreground transition-colors hover:text-primary"
+                        >
+                          {phone}
+                        </a>
+                      ))}
                     </div>
                   </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
@@ -26,9 +27,17 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
         {/* Logo */}
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-xl font-bold text-primary">
-              Antra<span className="text-foreground">Beverage</span>
+          <Link href="/" className="-m-1.5 flex items-center gap-2 p-1.5">
+            <Image
+              src="/images/antrading-logo.png"
+              alt="AN Trading BV"
+              width={40}
+              height={40}
+              className="h-10 w-10"
+              priority
+            />
+            <span className="text-lg font-bold text-foreground">
+              AN Trading BV
             </span>
           </Link>
         </div>

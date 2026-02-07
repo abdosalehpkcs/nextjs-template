@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -16,9 +17,18 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-primary">
-              Antra<span className="text-foreground">Beverage</span>
-            </h3>
+            <div className="mb-4 flex items-center gap-2">
+              <Image
+                src="/images/antrading-logo.png"
+                alt="AN Trading BV"
+                width={36}
+                height={36}
+                className="h-9 w-9"
+              />
+              <h3 className="text-lg font-semibold text-foreground">
+                AN Trading BV
+              </h3>
+            </div>
             <p className="text-balance text-sm text-muted-foreground">
               {siteConfig.description}
             </p>
@@ -81,13 +91,18 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <Phone className="mt-0.5 h-4 w-4 text-primary" />
-                <a
-                  href={`tel:${siteConfig.company.phone}`}
-                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
-                >
-                  {siteConfig.company.phone}
-                </a>
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div className="flex flex-col gap-1">
+                  {siteConfig.company.phones.map((phone) => (
+                    <a
+                      key={phone}
+                      href={`tel:${phone.replace(/\s/g, '')}`}
+                      className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    >
+                      {phone}
+                    </a>
+                  ))}
+                </div>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
