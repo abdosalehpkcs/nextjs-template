@@ -11,7 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "type-check": "tsc -b",
-    "prepare": "husky install"
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "1.1.15",
