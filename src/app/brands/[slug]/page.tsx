@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Package } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { notFound } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -22,7 +22,7 @@ export default function BrandPage({
   const brand = brands.find((b) => b.slug === slug);
 
   if (!brand) {
-    notFound();
+    redirect('/products');
   }
 
   const brandProducts = products.filter((p) => p.brand === brand.slug);

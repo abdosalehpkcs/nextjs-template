@@ -13,7 +13,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import { brands } from '@/data/products';
 import { siteConfig } from '@/lib/site-config';
-import type { Brand } from '@/types/product';
 
 interface FormData {
   companyName: string;
@@ -22,7 +21,7 @@ interface FormData {
   email: string;
   phone: string;
   location: string;
-  interestedBrands: Brand[];
+  interestedBrands: string[];
   volume: string;
   message: string;
 }
@@ -115,7 +114,7 @@ export default function ContactPage() {
     }, 3000);
   };
 
-  const toggleBrand = (brand: Brand) => {
+  const toggleBrand = (brand: string) => {
     setFormData((prev) => ({
       ...prev,
       interestedBrands: prev.interestedBrands.includes(brand)

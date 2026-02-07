@@ -14,14 +14,23 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
   const { i18n } = useTranslation();
   const currentLocale = i18n.language as Locale;
 
+  const localeOrder: Locale[] = ['en', 'ar', 'nl'];
+  const localeLabels: Record<Locale, string> = {
+    en: 'EN',
+    ar: 'AR',
+    nl: 'NL',
+  };
+
   const switchLanguage = () => {
-    const newLocale: Locale = currentLocale === 'en' ? 'de' : 'en';
+    const currentIndex = localeOrder.indexOf(currentLocale);
+    const nextIndex = (currentIndex + 1) % localeOrder.length;
+    const newLocale = localeOrder[nextIndex];
 
-    // Change language client-side (instant, no reload)
     i18n.changeLanguage(newLocale);
-
-    // Store preference in cookie
     document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000`;
+
+    // Set RTL for Arabic
+    document.documentElement.dir = newLocale === 'ar' ? 'rtl' : 'ltr';
   };
 
   return (
@@ -30,8 +39,9 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
       size="icon"
       className={className}
       onClick={switchLanguage}
+      aria-label="Switch language"
     >
-      {currentLocale === 'en' ? 'DE' : 'EN'}
+      {localeLabels[currentLocale] || 'EN'}
     </Button>
   );
 };
