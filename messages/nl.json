@@ -1,0 +1,176 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "products": "Producten",
+    "about": "Over Ons",
+    "contact": "Contact",
+    "requestQuote": "Offerte Aanvragen",
+    "toggleTheme": "Wissel thema",
+    "language": "Taal"
+  },
+  "HomePage": {
+    "hero": {
+      "title": "Premium Drankendistributie",
+      "subtitle": "Uw vertrouwde B2B-partner voor kwaliteitsdranken in België",
+      "cta": "Bekijk Onze Catalogus",
+      "ctaSecondary": "Vraag een Offerte Aan"
+    },
+    "brands": {
+      "title": "Onze Premium Merken",
+      "subtitle": "Wij distribueren 's werelds meest vertrouwde drankenmerken"
+    },
+    "featured": {
+      "title": "Uitgelichte Producten",
+      "viewAll": "Bekijk Alle Producten"
+    },
+    "why": {
+      "title": "Waarom Kiezen voor Antra?",
+      "reliability": "Betrouwbare Levering",
+      "reliabilityDesc": "Consistente voorraad en levering op tijd",
+      "quality": "Kwaliteitsborging",
+      "qualityDesc": "Juiste opslag en behandeling van alle producten",
+      "competitive": "Concurrerende Prijzen",
+      "competitiveDesc": "Volumekortingen voor bulk bestellingen",
+      "support": "Deskundige Ondersteuning",
+      "supportDesc": "Toegewijde accountbeheer en service"
+    }
+  },
+  "ProductsPage": {
+    "title": "Onze Productcatalogus",
+    "subtitle": "Blader door ons complete assortiment premium dranken",
+    "search": "Zoek producten...",
+    "filterBrand": "Filter op Merk",
+    "filterCategory": "Filter op Categorie",
+    "allBrands": "Alle Merken",
+    "allCategories": "Alle Categorieën",
+    "noResults": "Geen producten gevonden",
+    "noResultsDesc": "Probeer uw filters of zoektermen aan te passen",
+    "packageSize": "Verpakkingsgrootte"
+  },
+  "AboutPage": {
+    "title": "Over Antra Drankendistributie",
+    "subtitle": "Uw vertrouwde partner in drankendistributie sinds 2010",
+    "mission": {
+      "title": "Onze Missie",
+      "content": "Bij Antra Drankendistributie zijn we toegewijd aan het bieden van bedrijven in heel België betrouwbare toegang tot 's werelds toonaangevende drankenmerken. We zijn trots op uitzonderlijke service, concurrerende prijzen en het opbouwen van langdurige partnerschappen met onze klanten."
+    },
+    "values": {
+      "title": "Onze Waarden",
+      "integrity": "Integriteit",
+      "integrityDesc": "We doen zaken met eerlijkheid en transparantie",
+      "excellence": "Uitmuntendheid",
+      "excellenceDesc": "We streven naar de hoogste normen in alles wat we doen",
+      "partnership": "Partnerschap",
+      "partnershipDesc": "We bouwen duurzame relaties met onze klanten",
+      "innovation": "Innovatie",
+      "innovationDesc": "We verbeteren continu onze diensten en activiteiten"
+    },
+    "stats": {
+      "yearsExperience": "Jaar Ervaring",
+      "happyClients": "Tevreden Klanten",
+      "productRange": "Productassortiment",
+      "deliveryRate": "Tijdige Levering"
+    }
+  },
+  "ContactPage": {
+    "title": "Neem Contact Op",
+    "subtitle": "Klaar om met ons samen te werken? Vul het onderstaande formulier in en we nemen binnen 24 uur contact met u op.",
+    "form": {
+      "companyName": "Bedrijfsnaam",
+      "companyNamePlaceholder": "Uw Bedrijf BV",
+      "vatId": "BTW-nummer (Optioneel)",
+      "vatIdPlaceholder": "BE0123456789",
+      "contactName": "Contactpersoon",
+      "contactNamePlaceholder": "Jan Jansen",
+      "email": "E-mailadres",
+      "emailPlaceholder": "jan@bedrijf.be",
+      "phone": "Telefoonnummer",
+      "phonePlaceholder": "+32 2 123 45 67",
+      "location": "Locatie/Stad",
+      "locationPlaceholder": "Brussel",
+      "interestedBrands": "Geïnteresseerde Merken",
+      "selectBrands": "Selecteer een of meer merken",
+      "volumeEstimate": "Geschat Maandelijks Volume",
+      "selectVolume": "Selecteer volumebereik",
+      "message": "Aanvullende Informatie",
+      "messagePlaceholder": "Vertel ons over uw zakelijke behoeften...",
+      "submit": "Verzoek Indienen",
+      "submitting": "Verzenden...",
+      "success": "Bedankt! We nemen binnenkort contact met u op.",
+      "error": "Vul alle verplichte velden correct in"
+    },
+    "volumes": {
+      "small": "Klein (< 500 eenheden/maand)",
+      "medium": "Gemiddeld (500-2000 eenheden/maand)",
+      "large": "Groot (2000-5000 eenheden/maand)",
+      "enterprise": "Enterprise (5000+ eenheden/maand)"
+    },
+    "info": {
+      "title": "Contactgegevens",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "address": "Adres",
+      "hours": "Openingstijden",
+      "weekdays": "Maandag - Vrijdag: 8:00 - 18:00",
+      "weekend": "Zaterdag: 9:00 - 13:00",
+      "closed": "Zondag: Gesloten"
+    }
+  },
+  "BrandPage": {
+    "products": "Producten",
+    "backToCatalog": "Terug naar Catalogus"
+  },
+  "Footer": {
+    "company": "Bedrijf",
+    "quickLinks": "Snelle Links",
+    "contact": "Contact",
+    "copyright": "Alle rechten voorbehouden.",
+    "home": "Home",
+    "products": "Producten",
+    "about": "Over Ons",
+    "contactUs": "Contact"
+  },
+  "Consent": {
+    "banner": {
+      "title": "We gebruiken cookies",
+      "description": "We gebruiken cookies om uw browse-ervaring te verbeteren, websiteverkeer te analyseren en onze diensten te verbeteren.",
+      "learnMore": "Meer informatie"
+    },
+    "actions": {
+      "accept": "Alles Accepteren",
+      "reject": "Alles Weigeren",
+      "manage": "Voorkeuren Beheren",
+      "acceptAriaLabel": "Accepteer alle cookies",
+      "rejectAriaLabel": "Weiger niet-essentiële cookies",
+      "manageAriaLabel": "Open cookievoorkeuren"
+    },
+    "preferences": {
+      "title": "Cookievoorkeuren",
+      "description": "Beheer uw cookievoorkeuren. U kunt verschillende categorieën cookies hieronder in- of uitschakelen.",
+      "savePreferences": "Voorkeuren Opslaan",
+      "alwaysOn": "Altijd aan",
+      "enable": "Inschakelen",
+      "disable": "Uitschakelen"
+    },
+    "categories": {
+      "necessary": {
+        "title": "Noodzakelijke Cookies",
+        "description": "Deze cookies zijn essentieel voor de goede werking van de website. Ze kunnen niet worden uitgeschakeld."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "Deze cookies helpen ons te begrijpen hoe bezoekers omgaan met onze website door anonieme informatie te verzamelen."
+      }
+    }
+  },
+  "Legal": {
+    "links": {
+      "terms": "Servicevoorwaarden",
+      "privacy": "Privacybeleid",
+      "cookies": "Cookiebeleid",
+      "cookiePreferences": "Cookievoorkeuren",
+      "ariaLabel": "Juridische links",
+      "cookiePreferencesAriaLabel": "Beheer cookievoorkeuren"
+    }
+  }
+}

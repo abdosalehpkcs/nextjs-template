@@ -1,13 +1,14 @@
-import '@/styles/globals.css';
+import '@/app/globals.css';
 
 import type { Metadata } from 'next';
 
+import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
 import { LangSwitcher } from '@/components/lang-switcher';
 import {
   AnalyticsProvider,
   CookieConsentBanner,
   CookiePreferencesModal,
-  LegalLinks,
 } from '@/components/legal';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ThemeSwitcher } from '@/components/theme-switcher';
@@ -53,31 +54,22 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn('min-h-screen font-sans', fonts)}>
+      <body className={cn('flex min-h-screen flex-col font-sans', fonts)}>
         <I18nProvider>
           <ThemeProvider attribute="class">
             <ConsentProvider>
               <AnalyticsProvider
                 googleAnalyticsId={env.GOOGLE_SITE_ANALYTICS_ID}
               >
-                {children}
-                {/* Footer with Legal Links */}
-                <footer className="border-border bg-background border-t px-4 py-6">
-                  <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
-                    <p className="text-muted-foreground text-sm">
-                      © {new Date().getFullYear()} {siteConfig.title}
-                    </p>
-                    <LegalLinks />
-                  </div>
-                </footer>
-                {/* Cookie Consent Banner */}
+                <Header />
+                <main className="flex-1">{children}</main>
+                <Footer />
                 <CookieConsentBanner position="bottom" />
-                {/* Cookie Preferences Modal */}
                 <CookiePreferencesModal />
               </AnalyticsProvider>
             </ConsentProvider>
-            <LangSwitcher className="absolute right-5 bottom-16 z-10" />
-            <ThemeSwitcher className="absolute right-5 bottom-5 z-10" />
+            <LangSwitcher className="fixed bottom-16 right-5 z-10" />
+            <ThemeSwitcher className="fixed bottom-5 right-5 z-10" />
           </ThemeProvider>
         </I18nProvider>
       </body>

@@ -1,337 +1,229 @@
 'use client';
 
-import {
-  Code2,
-  ExternalLink,
-  Github,
-  Globe,
-  Linkedin,
-  Rocket,
-  Settings,
-  Shield,
-} from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, CheckCircle, Package, ShieldCheck, TrendingUp, Users } from 'lucide-react';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { useTrackEvent } from '@/lib/analytics';
-import { siteConfig } from '@/lib/site-config';
+import { Card, CardContent } from '@/components/ui/card';
+import { brands, products } from '@/data/products';
 
-export default function Home() {
-  const { t, i18n } = useTranslation();
-  const track = useTrackEvent();
-
-  const features = [
-    { key: 'nextjs', icon: '⚡' },
-    { key: 'react', icon: '⚛️' },
-    { key: 'typescript', icon: '🔷' },
-    { key: 'tailwind', icon: '🎨' },
-    { key: 'shadcn', icon: '🎯' },
-    { key: 'darkMode', icon: '🌙' },
-    { key: 'i18n', icon: '🌍' },
-    { key: 'env', icon: '🔒' },
-    { key: 'linting', icon: '🔧' },
-    { key: 'docker', icon: '🐳' },
-  ];
-
-  const techStack = [
-    'Next.js 15',
-    'React 19',
-    'TypeScript',
-    'Tailwind CSS',
-    'Shadcn/ui',
-  ];
+export default function HomePage() {
+  const { t } = useTranslation();
+  const featuredProducts = products.filter((p) => p.featured);
 
   return (
-    <div className="from-background via-background to-muted/20 min-h-screen bg-gradient-to-br">
-      {/* Header with Controls */}
-      <header className="container mx-auto px-4 py-4">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Globe className="text-primary h-6 w-6" />
-            <span className="text-lg font-semibold">Next.js 15 Template</span>
-          </div>
-        </div>
-      </header>
-
-      <div className="container mx-auto px-4 py-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row">
-          {/* Main Content */}
-          <div className="flex-1">
-            {/* Hero Section */}
-            <section className="mb-12 lg:mb-20">
-              <div className="mx-auto max-w-4xl text-center">
-                <div className="mb-8">
-                  <p className="text-muted-foreground mb-2 text-lg">
-                    {t('HomePage.greeting')}
-                  </p>
-                  <h1 className="from-primary to-primary/60 mb-4 bg-gradient-to-r bg-clip-text text-4xl font-bold text-transparent md:text-6xl lg:text-7xl">
-                    {t('HomePage.name')}
-                  </h1>
-                  <h2 className="text-muted-foreground mb-6 text-xl font-medium md:text-2xl lg:text-3xl">
-                    {t('HomePage.title')}
-                  </h2>
-                </div>
-
-                <p className="text-muted-foreground mx-auto mb-8 max-w-3xl text-lg leading-relaxed md:text-xl">
-                  {t('HomePage.description')}
-                </p>
-
-                {/* CTA Buttons */}
-                <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                  <Button size="lg" className="group" asChild>
-                    <a
-                      href="https://www.linkedin.com/in/abdo-saleh/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2"
-                      onClick={() => {
-                        // Example: Track external link click
-                        track('link_click', {
-                          link_url: 'https://www.linkedin.com/in/abdo-saleh/',
-                          link_text: t('HomePage.viewLinkedIn'),
-                          is_external: true,
-                        });
-                      }}
-                    >
-                      <Linkedin className="h-5 w-5" />
-                      {t('HomePage.viewLinkedIn')}
-                      <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </a>
-                  </Button>
-
-                  <Button variant="outline" size="lg" asChild>
-                    <a
-                      href="https://github.com/abdosalehpkcs"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2"
-                      onClick={() => {
-                        // Example: Track external link click
-                        track('link_click', {
-                          link_url: 'https://github.com/abdosalehpkcs',
-                          link_text: t('HomePage.viewGitHub'),
-                          is_external: true,
-                        });
-                      }}
-                    >
-                      <Github className="h-5 w-5" />
-                      {t('HomePage.viewGitHub')}
-                    </a>
-                  </Button>
-                </div>
-
-                {/* Tech Stack */}
-                <div className="mb-16">
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    {t('HomePage.builtWith')}
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {techStack.map(tech => (
-                      <Badge key={tech} variant="secondary" className="text-sm">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Features Section */}
-            <section className="mb-16">
-              <div className="mb-12 text-center">
-                <h3 className="mb-4 flex items-center justify-center gap-2 text-2xl font-bold md:text-3xl">
-                  <Rocket className="text-primary h-8 w-8" />
-                  {t('HomePage.features.title')}
-                </h3>
-                <p className="text-muted-foreground mx-auto max-w-2xl">
-                  {t('HomePage.templateInfo')}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
-                {features.map(feature => (
-                  <Card
-                    key={feature.key}
-                    className="group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-                  >
-                    <CardHeader className="pb-3">
-                      <CardTitle className="flex items-center gap-3 text-lg">
-                        <span className="text-2xl">{feature.icon}</span>
-                        <span className="group-hover:text-primary transition-colors">
-                          {t(`HomePage.features.${feature.key}`)}
-                        </span>
-                      </CardTitle>
-                    </CardHeader>
-                  </Card>
-                ))}
-              </div>
-            </section>
-
-            {/* About Template Section */}
-            <section className="mb-16">
-              <Card className="border-primary/10 from-primary/5 border-2 bg-gradient-to-r to-transparent">
-                <CardHeader className="text-center">
-                  <CardTitle className="flex items-center justify-center gap-2 text-2xl">
-                    <Code2 className="text-primary h-6 w-6" />
-                    Next.js 15 Template
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    {t('HomePage.templateInfo')}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <Button size="lg" className="group" asChild>
-                    <a
-                      href="https://github.com/abd-alrahman-saleh/nextjs-15-template"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2"
-                      onClick={() => {
-                        // Example: Track CTA button click
-                        track('button_click', {
-                          button_id: 'get-started-cta',
-                          button_text: t('HomePage.getStarted'),
-                          section: 'template-promo',
-                        });
-                      }}
-                    >
-                      <Github className="h-5 w-5" />
-                      {t('HomePage.getStarted')}
-                      <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            </section>
-          </div>
-
-          {/* Configuration Sidebar */}
-          <aside className="space-y-4 lg:w-80 xl:w-96">
-            <div className="sticky top-4 space-y-4">
-              {/* Site Configuration */}
-              <Card className="border-primary/20">
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-                    <Settings className="text-primary h-4 w-4" />
-                    Site Config
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div>
-                    <p className="text-muted-foreground mb-1 text-xs">Title</p>
-                    <p className="text-sm font-medium break-words">
-                      {siteConfig.title}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground mb-1 text-xs">
-                      Description
-                    </p>
-                    <p className="text-muted-foreground line-clamp-2 text-xs">
-                      {siteConfig.description}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground mb-1 text-xs">URL</p>
-                    <p className="font-mono text-xs break-all">
-                      {siteConfig.url}
-                    </p>
-                  </div>
-                  <div className="border-t pt-2">
-                    <code className="text-muted-foreground text-xs">
-                      lib/site-config.ts
-                    </code>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Quick Stats */}
-              <Card className="border-green-500/20">
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-sm font-semibold">
-                    <Shield className="h-4 w-4 text-green-500" />
-                    Quick Stats
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground text-xs">
-                      Features
-                    </span>
-                    <Badge variant="secondary" className="text-xs">
-                      {features.length}
-                    </Badge>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground text-xs">
-                      Tech Stack
-                    </span>
-                    <Badge variant="secondary" className="text-xs">
-                      {techStack.length}
-                    </Badge>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground text-xs">
-                      Locale
-                    </span>
-                    <Badge variant="secondary" className="text-xs uppercase">
-                      {i18n.language}
-                    </Badge>
-                  </div>
-                  <div className="border-t pt-2">
-                    <p className="text-muted-foreground text-xs">
-                      Runtime info
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </aside>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="bg-muted/30 mt-16 border-t">
-        <div className="container mx-auto px-4 py-8">
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-20 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center">
-            <p className="text-muted-foreground mb-4">
-              {t('Footer.madeBy')}{' '}
-              <span className="text-foreground font-semibold">
-                {t('HomePage.name')}
-              </span>
+            <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
+              {t('HomePage.hero.title')}
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+              {t('HomePage.hero.subtitle')}
             </p>
-            <div className="mb-4 flex justify-center gap-4">
-              <a
-                href="https://www.linkedin.com/in/abdo-saleh/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://github.com/abdosalehpkcs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Github className="h-5 w-5" />
-              </a>
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button size="lg" asChild>
+                <Link href="/products">
+                  {t('HomePage.hero.cta')}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/contact">{t('HomePage.hero.ctaSecondary')}</Link>
+              </Button>
             </div>
-            <p className="text-muted-foreground text-sm">
-              © 2025 {t('HomePage.name')}. {t('Footer.allRightsReserved')}
-            </p>
           </div>
         </div>
-      </footer>
+      </section>
+
+      {/* Brands Section */}
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              {t('HomePage.brands.title')}
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-muted-foreground">
+              {t('HomePage.brands.subtitle')}
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
+            {brands.map((brand) => (
+              <Link
+                key={brand.slug}
+                href={`/brands/${brand.slug}`}
+                className="group relative flex flex-col items-center gap-3 rounded-lg border bg-card p-6 transition-all hover:border-primary hover:shadow-lg"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+                  <span
+                    className="text-2xl font-bold"
+                    style={{ color: brand.color }}
+                  >
+                    {brand.name.charAt(0)}
+                  </span>
+                </div>
+                <h3 className="text-center text-sm font-semibold text-foreground">
+                  {brand.name}
+                </h3>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="bg-muted/40 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="flex items-end justify-between">
+            <div>
+              <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                {t('HomePage.featured.title')}
+              </h2>
+            </div>
+            <Button variant="outline" asChild className="hidden sm:flex">
+              <Link href="/products">
+                {t('HomePage.featured.viewAll')}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredProducts.map((product) => (
+              <Card key={product.id} className="group overflow-hidden transition-shadow hover:shadow-lg">
+                <div className="relative aspect-square overflow-hidden bg-muted">
+                  <Image
+                    src={product.imageUrl}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-8 transition-transform group-hover:scale-105"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <div className="mb-2 flex items-center gap-2">
+                    <span className="rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
+                      {product.brand}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {product.category}
+                    </span>
+                  </div>
+                  <h3 className="text-balance text-lg font-semibold text-foreground">
+                    {product.name}
+                  </h3>
+                  <p className="mt-2 text-pretty text-sm text-muted-foreground">
+                    {product.description}
+                  </p>
+                  {product.packageSize && (
+                    <p className="mt-3 flex items-center gap-1 text-xs text-muted-foreground">
+                      <Package className="h-3 w-3" />
+                      {product.packageSize}
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center sm:hidden">
+            <Button variant="outline" asChild className="w-full">
+              <Link href="/products">
+                {t('HomePage.featured.viewAll')}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              {t('HomePage.why.title')}
+            </h2>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col items-center text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                <CheckCircle className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">
+                {t('HomePage.why.reliability')}
+              </h3>
+              <p className="mt-2 text-pretty text-sm text-muted-foreground">
+                {t('HomePage.why.reliabilityDesc')}
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                <ShieldCheck className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">
+                {t('HomePage.why.quality')}
+              </h3>
+              <p className="mt-2 text-pretty text-sm text-muted-foreground">
+                {t('HomePage.why.qualityDesc')}
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                <TrendingUp className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">
+                {t('HomePage.why.competitive')}
+              </h3>
+              <p className="mt-2 text-pretty text-sm text-muted-foreground">
+                {t('HomePage.why.competitiveDesc')}
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">
+                {t('HomePage.why.support')}
+              </h3>
+              <p className="mt-2 text-pretty text-sm text-muted-foreground">
+                {t('HomePage.why.supportDesc')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-primary py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 text-center lg:px-8">
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl">
+            Ready to Partner With Us?
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg text-primary-foreground/90">
+            Contact our team today for a personalized quote and discover how we can support your business.
+          </p>
+          <Button
+            size="lg"
+            variant="secondary"
+            asChild
+            className="mt-8"
+          >
+            <Link href="/contact">
+              {t('Navigation.requestQuote')}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
     </div>
   );
 }

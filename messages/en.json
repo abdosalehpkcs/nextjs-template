@@ -1,40 +1,134 @@
 {
-  "HomePage": {
-    "greeting": "Hello, I'm",
-    "name": "Ing. Abd Alrahman Saleh",
-    "title": "Full Stack Developer & Software Engineer",
-    "description": "Welcome to my Next.js 15 template - a modern, production-ready starter built with TypeScript, Tailwind CSS, and best practices.",
-    "templateInfo": "This template was crafted with care to provide developers with a solid foundation for their next project.",
-    "viewLinkedIn": "View LinkedIn Profile",
-    "viewGitHub": "View on GitHub",
-    "getStarted": "Get Started",
-    "builtWith": "Built with",
-    "features": {
-      "title": "Template Features",
-      "nextjs": "Next.js 15 with App Router & Turbopack",
-      "react": "React 19 with latest features",
-      "typescript": "TypeScript with strict configuration",
-      "tailwind": "Tailwind CSS 4 with CSS-first approach",
-      "shadcn": "Shadcn/ui component system",
-      "darkMode": "Dark mode support with next-themes",
-      "i18n": "Multi-language support with react-i18next",
-      "env": "Type-safe environment variables",
-      "linting": "ESLint, Prettier, and Husky setup",
-      "docker": "Docker ready with multi-stage builds"
-    }
-  },
   "Navigation": {
     "home": "Home",
-    "about": "About",
+    "products": "Products",
+    "about": "About Us",
     "contact": "Contact",
-    "blog": "Blog",
+    "requestQuote": "Request a Quote",
     "toggleTheme": "Toggle theme",
     "language": "Language"
   },
+  "HomePage": {
+    "hero": {
+      "title": "Premium Beverage Distribution",
+      "subtitle": "Your trusted B2B partner for quality drinks across Belgium",
+      "cta": "View Our Catalog",
+      "ctaSecondary": "Request a Quote"
+    },
+    "brands": {
+      "title": "Our Premium Brands",
+      "subtitle": "We distribute the world's most trusted beverage brands"
+    },
+    "featured": {
+      "title": "Featured Products",
+      "viewAll": "View All Products"
+    },
+    "why": {
+      "title": "Why Choose Antra?",
+      "reliability": "Reliable Supply",
+      "reliabilityDesc": "Consistent stock availability and on-time delivery",
+      "quality": "Quality Assurance",
+      "qualityDesc": "Proper storage and handling of all products",
+      "competitive": "Competitive Pricing",
+      "competitiveDesc": "Volume discounts for bulk orders",
+      "support": "Expert Support",
+      "supportDesc": "Dedicated account management and service"
+    }
+  },
+  "ProductsPage": {
+    "title": "Our Product Catalog",
+    "subtitle": "Browse our complete range of premium beverages",
+    "search": "Search products...",
+    "filterBrand": "Filter by Brand",
+    "filterCategory": "Filter by Category",
+    "allBrands": "All Brands",
+    "allCategories": "All Categories",
+    "noResults": "No products found",
+    "noResultsDesc": "Try adjusting your filters or search terms",
+    "packageSize": "Package Size"
+  },
+  "AboutPage": {
+    "title": "About Antra Beverage Distribution",
+    "subtitle": "Your trusted partner in beverage distribution since 2010",
+    "mission": {
+      "title": "Our Mission",
+      "content": "At Antra Beverage Distribution, we're committed to providing businesses across Belgium with reliable access to the world's leading beverage brands. We pride ourselves on exceptional service, competitive pricing, and building long-term partnerships with our clients."
+    },
+    "values": {
+      "title": "Our Values",
+      "integrity": "Integrity",
+      "integrityDesc": "We conduct business with honesty and transparency",
+      "excellence": "Excellence",
+      "excellenceDesc": "We strive for the highest standards in everything we do",
+      "partnership": "Partnership",
+      "partnershipDesc": "We build lasting relationships with our clients",
+      "innovation": "Innovation",
+      "innovationDesc": "We continuously improve our services and operations"
+    },
+    "stats": {
+      "yearsExperience": "Years of Experience",
+      "happyClients": "Happy Clients",
+      "productRange": "Product Range",
+      "deliveryRate": "On-Time Delivery"
+    }
+  },
+  "ContactPage": {
+    "title": "Get in Touch",
+    "subtitle": "Ready to partner with us? Fill out the form below and we'll get back to you within 24 hours.",
+    "form": {
+      "companyName": "Company Name",
+      "companyNamePlaceholder": "Your Company Ltd.",
+      "vatId": "VAT/Tax ID (Optional)",
+      "vatIdPlaceholder": "BE0123456789",
+      "contactName": "Contact Name",
+      "contactNamePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@company.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+32 2 123 45 67",
+      "location": "Location/City",
+      "locationPlaceholder": "Brussels",
+      "interestedBrands": "Interested Brands",
+      "selectBrands": "Select one or more brands",
+      "volumeEstimate": "Estimated Monthly Volume",
+      "selectVolume": "Select volume range",
+      "message": "Additional Information",
+      "messagePlaceholder": "Tell us about your business needs...",
+      "submit": "Submit Request",
+      "submitting": "Submitting...",
+      "success": "Thank you! We'll be in touch soon.",
+      "error": "Please fill in all required fields correctly"
+    },
+    "volumes": {
+      "small": "Small (< 500 units/month)",
+      "medium": "Medium (500-2000 units/month)",
+      "large": "Large (2000-5000 units/month)",
+      "enterprise": "Enterprise (5000+ units/month)"
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "hours": "Business Hours",
+      "weekdays": "Monday - Friday: 8:00 AM - 6:00 PM",
+      "weekend": "Saturday: 9:00 AM - 1:00 PM",
+      "closed": "Sunday: Closed"
+    }
+  },
+  "BrandPage": {
+    "products": "Products",
+    "backToCatalog": "Back to Catalog"
+  },
   "Footer": {
-    "madeBy": "Made with ❤️ by",
-    "allRightsReserved": "All rights reserved.",
-    "connect": "Connect with me"
+    "company": "Company",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "copyright": "All rights reserved.",
+    "home": "Home",
+    "products": "Products",
+    "about": "About Us",
+    "contactUs": "Contact"
   },
   "Consent": {
     "banner": {
@@ -77,147 +171,6 @@
       "cookiePreferences": "Cookie Preferences",
       "ariaLabel": "Legal links",
       "cookiePreferencesAriaLabel": "Manage cookie preferences"
-    },
-    "terms": {
-      "title": "Terms of Service",
-      "lastUpdated": "Last updated: February 3, 2026",
-      "sections": {
-        "acceptance": {
-          "title": "1. Acceptance of Terms",
-          "content": "By accessing and using this website, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services."
-        },
-        "useOfService": {
-          "title": "2. Use of Service",
-          "content": "You agree to use our service only for lawful purposes and in accordance with these terms. You agree not to:",
-          "items": {
-            "lawful": "Use the service for any unlawful purpose or to solicit others to perform unlawful acts",
-            "noHarm": "Violate any regulations, rules, laws, or local ordinances",
-            "noUnauthorized": "Attempt to gain unauthorized access to our systems or networks"
-          }
-        },
-        "intellectualProperty": {
-          "title": "3. Intellectual Property",
-          "content": "All content, features, and functionality on this website are owned by us and are protected by international copyright, trademark, and other intellectual property laws."
-        },
-        "disclaimer": {
-          "title": "4. Disclaimer",
-          "content": "This website is provided \"as is\" without any warranties, expressed or implied. We do not warrant that the service will be uninterrupted, secure, or error-free."
-        },
-        "limitation": {
-          "title": "5. Limitation of Liability",
-          "content": "In no event shall we be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use the service."
-        },
-        "changes": {
-          "title": "6. Changes to Terms",
-          "content": "We reserve the right to modify these terms at any time. We will notify you of any changes by posting the new terms on this page."
-        },
-        "contact": {
-          "title": "7. Contact Us",
-          "content": "If you have any questions about these Terms of Service, please contact us through the contact information provided on our website."
-        }
-      }
-    },
-    "privacy": {
-      "title": "Privacy Policy",
-      "lastUpdated": "Last updated: February 3, 2026",
-      "sections": {
-        "introduction": {
-          "title": "1. Introduction",
-          "content": "We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website."
-        },
-        "dataCollection": {
-          "title": "2. Data We Collect",
-          "content": "We may collect the following types of information:",
-          "items": {
-            "usage": "Usage data (pages visited, time spent, etc.)",
-            "device": "Device information (browser type, operating system)",
-            "cookies": "Cookies and similar tracking technologies"
-          }
-        },
-        "dataUse": {
-          "title": "3. How We Use Your Data",
-          "content": "We use the collected data for various purposes:",
-          "items": {
-            "provide": "To provide and maintain our service",
-            "improve": "To improve and personalize your experience",
-            "communicate": "To communicate with you about updates and changes",
-            "analytics": "To analyze usage patterns and optimize performance"
-          }
-        },
-        "dataSharing": {
-          "title": "4. Data Sharing",
-          "content": "We do not sell your personal data. We may share anonymized, aggregated data with analytics providers to help us understand how our website is used."
-        },
-        "dataSecurity": {
-          "title": "5. Data Security",
-          "content": "We implement appropriate security measures to protect your personal data. However, no method of transmission over the internet is 100% secure."
-        },
-        "yourRights": {
-          "title": "6. Your Rights",
-          "content": "Depending on your location, you may have the following rights:",
-          "items": {
-            "access": "Right to access your personal data",
-            "correction": "Right to request correction of inaccurate data",
-            "deletion": "Right to request deletion of your data",
-            "optOut": "Right to opt-out of certain data processing"
-          }
-        },
-        "changes": {
-          "title": "7. Changes to This Policy",
-          "content": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page."
-        },
-        "contact": {
-          "title": "8. Contact Us",
-          "content": "If you have any questions about this Privacy Policy, please contact us through the contact information provided on our website."
-        }
-      }
-    },
-    "cookies": {
-      "title": "Cookie Policy",
-      "lastUpdated": "Last updated: February 3, 2026",
-      "sections": {
-        "whatAreCookies": {
-          "title": "1. What Are Cookies",
-          "content": "Cookies are small text files that are stored on your device when you visit a website. They help websites remember your preferences and improve your browsing experience."
-        },
-        "howWeUse": {
-          "title": "2. How We Use Cookies",
-          "content": "We use cookies to understand how you use our website, remember your preferences, and improve our services. Some cookies are essential for the website to function properly."
-        },
-        "types": {
-          "title": "3. Types of Cookies We Use",
-          "necessary": {
-            "title": "Necessary Cookies",
-            "content": "These cookies are essential for the website to function properly. They enable basic functions like page navigation and access to secure areas. The website cannot function properly without these cookies."
-          },
-          "analytics": {
-            "title": "Analytics Cookies",
-            "content": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our website and services."
-          }
-        },
-        "thirdParty": {
-          "title": "4. Third-Party Cookies",
-          "content": "We may use the following third-party services that set cookies:",
-          "googleAnalytics": "Used to analyze website traffic and user behavior. Learn more at Google's privacy policy."
-        },
-        "manage": {
-          "title": "5. Managing Your Cookie Preferences",
-          "content": "You can manage your cookie preferences at any time by clicking the button below:",
-          "button": "Manage Cookie Preferences"
-        },
-        "browserSettings": {
-          "title": "6. Browser Cookie Settings",
-          "content": "You can also control cookies through your browser settings. Most browsers allow you to refuse or accept cookies, delete existing cookies, or set preferences for certain websites."
-        },
-        "changes": {
-          "title": "7. Changes to This Policy",
-          "content": "We may update this cookie policy from time to time. We will notify you of any changes by posting the new policy on this page."
-        },
-        "contact": {
-          "title": "8. Contact Us",
-          "content": "If you have any questions about our use of cookies, please contact us through the contact information provided on our website."
-        }
-      }
     }
   }
 }

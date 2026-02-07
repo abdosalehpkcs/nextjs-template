@@ -1,5 +1,5 @@
 export const defaultLocale = 'en';
-export const locales = ['en', 'de'] as const;
+export const locales = ['en', 'ar', 'nl'] as const;
 export type Locale = (typeof locales)[number];
 
 export function isValidLocale(locale: string): locale is Locale {
