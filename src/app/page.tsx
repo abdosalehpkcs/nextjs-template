@@ -19,6 +19,16 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-20 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="text-center">
+            <div className="mx-auto mb-8 flex items-center justify-center">
+              <Image
+                src="/images/antrading-logo.png"
+                alt="AN Trading BV"
+                width={160}
+                height={160}
+                className="aspect-square h-32 w-32 object-contain sm:h-40 sm:w-40"
+                priority
+              />
+            </div>
             <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
               {t('HomePage.hero.title')}
             </h1>

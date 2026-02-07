@@ -31,9 +31,9 @@ export function Header() {
             <Image
               src="/images/antrading-logo.png"
               alt="AN Trading BV"
-              width={40}
-              height={40}
-              className="h-10 w-10"
+              width={44}
+              height={44}
+              className="aspect-square h-11 w-11 object-contain"
               priority
             />
             <span className="text-lg font-bold text-foreground">
