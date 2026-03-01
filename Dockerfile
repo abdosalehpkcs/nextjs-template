@@ -1,42 +1,87 @@
 # Stage 1: Build the application
-FROM node:23-alpine AS builder
+FROM node:24-alpine AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json* ./
-RUN npm ci
+# Accept build-time environment variables
+ARG AWS_REGION
+ARG AWS_ACCESS_KEY_ID
+ARG AWS_SECRET_ACCESS_KEY
+ARG AWS_SES_FROM_EMAIL
+ARG AWS_SES_TO_EMAIL
+ARG APP_URL
+ARG APP_NAME
+ARG GOOGLE_SITE_VERIFICATION_ID
+ARG GOOGLE_SITE_ANALYTICS_ID
+
+# Set environment variables for the build process
+ENV AWS_REGION=${AWS_REGION}
+ENV AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+ENV AWS_SES_FROM_EMAIL=${AWS_SES_FROM_EMAIL}
+ENV AWS_SES_TO_EMAIL=${AWS_SES_TO_EMAIL}
+ENV APP_URL=${APP_URL}
+ENV APP_NAME=${APP_NAME}
+ENV GOOGLE_SITE_VERIFICATION_ID=${GOOGLE_SITE_VERIFICATION_ID}
+ENV GOOGLE_SITE_ANALYTICS_ID=${GOOGLE_SITE_ANALYTICS_ID}
+
+# Install dependencies (include dev dependencies for build)
+COPY package.json pnpm-lock.yaml* ./
+RUN corepack enable && pnpm install --frozen-lockfile
 
 # Copy all files
 COPY . .
 
 # Build the application
-RUN npm run build
+RUN pnpm run build
 
 # Stage 2: Create the production image
-FROM nginx:alpine AS runner
+FROM node:24-alpine AS runner
 
-# Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-# Copy the static output from builder
-COPY --from=builder /app/out /usr/share/nginx/html
+# Accept runtime environment variables
+ARG AWS_REGION
+ARG AWS_ACCESS_KEY_ID
+ARG AWS_SECRET_ACCESS_KEY
+ARG AWS_SES_FROM_EMAIL
+ARG AWS_SES_TO_EMAIL
+ARG APP_URL
+ARG APP_NAME
+ARG GOOGLE_SITE_VERIFICATION_ID
+ARG GOOGLE_SITE_ANALYTICS_ID
 
-# Set proper permissions for security
-RUN chown -R nginx:nginx /usr/share/nginx/html && \
-    chmod -R 755 /usr/share/nginx/html && \
-    chown -R nginx:nginx /var/cache/nginx && \
-    chown -R nginx:nginx /var/log/nginx && \
-    chown -R nginx:nginx /etc/nginx/conf.d && \
-    touch /var/run/nginx.pid && \
-    chown -R nginx:nginx /var/run/nginx.pid
+# Set runtime environment variables
+ENV AWS_REGION=${AWS_REGION}
+ENV AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+ENV AWS_SES_FROM_EMAIL=${AWS_SES_FROM_EMAIL}
+ENV AWS_SES_TO_EMAIL=${AWS_SES_TO_EMAIL}
+ENV APP_URL=${APP_URL}
+ENV APP_NAME=${APP_NAME}
+ENV GOOGLE_SITE_VERIFICATION_ID=${GOOGLE_SITE_VERIFICATION_ID}
+ENV GOOGLE_SITE_ANALYTICS_ID=${GOOGLE_SITE_ANALYTICS_ID}
 
-# Switch to non-root user
-USER nginx
+ENV NODE_ENV=production
 
-# Expose port
+# Create a non-root user
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Install production dependencies
+COPY package.json pnpm-lock.yaml* ./
+RUN corepack enable && pnpm install --frozen-lockfile --prod
+
+# Copy build output and required assets
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/next.config.ts ./next.config.ts
+
+USER nextjs
+
 EXPOSE 80
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+ENV HOSTNAME="0.0.0.0"
+ENV PORT=80
+
+CMD ["pnpm", "start"]

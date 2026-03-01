@@ -2,7 +2,7 @@
 
 import { useTranslation } from 'react-i18next';
 
-import type { LegalPageProps } from '../../lib/consent/types';
+import type { LegalPageProps } from './types';
 
 export function TermsOfServiceContent({ className = '' }: LegalPageProps) {
   const { t } = useTranslation();

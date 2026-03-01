@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
-import { useConsent } from '../../lib/consent/context';
-import type { LegalLinksProps } from '../../lib/consent/types';
+import { useConsent } from '@/modules/cookie-consent';
+
+import type { LegalLinksProps } from './types';
 
 export function LegalLinks({
   className = '',
@@ -12,7 +13,7 @@ export function LegalLinks({
   variant = 'inline',
 }: LegalLinksProps) {
   const { t } = useTranslation();
-  const { setShowPreferences } = useConsent();
+  const { openModal } = useConsent();
 
   const variantClass =
     variant === 'stacked' ? 'legal-links--stacked' : 'legal-links--inline';
@@ -34,7 +35,7 @@ export function LegalLinks({
       {showCookiePreferences && (
         <button
           type="button"
-          onClick={() => setShowPreferences(true)}
+          onClick={openModal}
           className="legal-links__item legal-links__button"
           aria-label={t('Legal.links.cookiePreferencesAriaLabel')}
         >

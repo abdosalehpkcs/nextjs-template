@@ -3,13 +3,13 @@
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
+import { useConsent } from '@/modules/cookie-consent';
 
-import { useConsent } from '../../lib/consent/context';
-import type { LegalPageProps } from '../../lib/consent/types';
+import type { LegalPageProps } from './types';
 
 export function CookiePolicyContent({ className = '' }: LegalPageProps) {
   const { t } = useTranslation();
-  const { setShowPreferences } = useConsent();
+  const { openModal } = useConsent();
 
   return (
     <div className={`legal-container ${className}`}>
@@ -81,10 +81,7 @@ export function CookiePolicyContent({ className = '' }: LegalPageProps) {
           {t('Legal.cookies.sections.manage.content')}
         </p>
         <div className="legal-cta">
-          <Button
-            onClick={() => setShowPreferences(true)}
-            className="consent-actions__button consent-actions__button--primary"
-          >
+          <Button onClick={openModal}>
             {t('Legal.cookies.sections.manage.button')}
           </Button>
         </div>

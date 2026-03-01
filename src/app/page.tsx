@@ -21,12 +21,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { useTrackEvent } from '@/lib/analytics';
 import { siteConfig } from '@/lib/site-config';
 
 export default function Home() {
   const { t, i18n } = useTranslation();
-  const track = useTrackEvent();
 
   const features = [
     { key: 'nextjs', icon: '⚡' },
@@ -92,14 +90,6 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
-                      onClick={() => {
-                        // Example: Track external link click
-                        track('link_click', {
-                          link_url: 'https://www.linkedin.com/in/abdo-saleh/',
-                          link_text: t('HomePage.viewLinkedIn'),
-                          is_external: true,
-                        });
-                      }}
                     >
                       <Linkedin className="h-5 w-5" />
                       {t('HomePage.viewLinkedIn')}
@@ -113,14 +103,6 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
-                      onClick={() => {
-                        // Example: Track external link click
-                        track('link_click', {
-                          link_url: 'https://github.com/abdosalehpkcs',
-                          link_text: t('HomePage.viewGitHub'),
-                          is_external: true,
-                        });
-                      }}
                     >
                       <Github className="h-5 w-5" />
                       {t('HomePage.viewGitHub')}
@@ -194,14 +176,6 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
-                      onClick={() => {
-                        // Example: Track CTA button click
-                        track('button_click', {
-                          button_id: 'get-started-cta',
-                          button_text: t('HomePage.getStarted'),
-                          section: 'template-promo',
-                        });
-                      }}
                     >
                       <Github className="h-5 w-5" />
                       {t('HomePage.getStarted')}

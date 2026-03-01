@@ -28,7 +28,7 @@ A modern, production-ready Next.js 15 template with TypeScript, Tailwind CSS 4, 
 ### Prerequisites
 
 - **Node.js** 18.17+ or 20+
-- **Yarn** (recommended) or npm/pnpm
+- **pnpm** (recommended) or npm
 
 ### Installation
 
@@ -38,13 +38,13 @@ git clone https://github.com/abdosalehpkcs/nextjs-template
 cd nextjs-template
 
 # 2. Install dependencies
-yarn install
+pnpm install
 
 # 3. Copy environment variables
 cp .env.example .env.local
 
 # 4. Start development server
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your app.
@@ -85,18 +85,18 @@ nextjs-template/
 
 ```bash
 # Development
-yarn dev              # Start dev server with Turbopack
+pnpm dev              # Start dev server with Turbopack
 
 # Building
-yarn build            # Build for production
-yarn start            # Start production server
+pnpm build            # Build for production
+pnpm start            # Start production server
 
 # Code Quality
-yarn lint             # Run ESLint
-yarn lint:fix         # Fix ESLint issues
-yarn format           # Format with Prettier
-yarn format:check     # Check formatting
-yarn type-check       # TypeScript type checking
+pnpm lint             # Run ESLint
+pnpm lint:fix         # Fix ESLint issues
+pnpm format           # Format with Prettier
+pnpm format:check     # Check formatting
+pnpm type-check       # TypeScript type checking
 ```
 
 ## 🌍 Internationalization
@@ -162,8 +162,15 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_APP_NAME=Your App Name
 
 # Optional
-GOOGLE_SITE_VERIFICATION_ID=your-verification-id
-GOOGLE_SITE_ANALYTICS_ID=G-XXXXXXXXXX
+CONTACT_FROM_EMAIL=no-reply@example.com
+CONTACT_TO_EMAIL=team@example.com
+CONTACT_REPLY_TO_EMAIL=support@example.com
+CONTACT_EMAIL_PROVIDER=ses
+AWS_ACCESS_KEY_ID=your-aws-access-key
+AWS_SECRET_ACCESS_KEY=your-aws-secret
+AWS_REGION=us-east-1
+USERSEND_API_KEY=your-usersend-key
+USERSEND_FROM_EMAIL=optional-override@example.com
 ```
 
 ### Adding UI Components

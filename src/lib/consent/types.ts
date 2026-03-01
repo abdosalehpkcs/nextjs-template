@@ -39,11 +39,6 @@ export interface ConsentPreferencesModalProps {
   className?: string;
 }
 
-export interface AnalyticsProviderProps {
-  children: React.ReactNode;
-  googleAnalyticsId?: string;
-}
-
 export interface LegalLinksProps {
   className?: string;
   showCookiePreferences?: boolean;
