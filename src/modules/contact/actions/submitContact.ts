@@ -11,8 +11,6 @@ import type {
 } from '../schema/contactSchema';
 import { contactSchema } from '../schema/contactSchema';
 
-export const runtime = 'nodejs';
-
 export const submitContact = async (
   input: ContactInput,
 ): Promise<ContactActionResult> => {
